@@ -33,24 +33,31 @@ public class TelegramNotifier
 
         foreach (var chatId in ChatIds)
         {
-            var payload = new
+            try
             {
-                chat_id = chatId,
-                photo = item.PhotoUrl,
-                caption,
-                parse_mode = "markdown",
-                reply_markup = inlineKeyboard
-            };
-        
-            Console.WriteLine(item.PhotoUrl);
-        
-            var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
-            var response = await Http.PostAsync(url, content);
+                var payload = new
+                {
+                    chat_id = chatId,
+                    photo = item.PhotoUrl,
+                    caption,
+                    parse_mode = "markdown",
+                    reply_markup = inlineKeyboard
+                };
 
-            if (!response.IsSuccessStatusCode)
+                Console.WriteLine(item.PhotoUrl);
+
+                var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+                var response = await Http.PostAsync(url, content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"❌ Telegram send failed: {response.StatusCode} - {error}");
+                }
+            }
+            catch (Exception ex)
             {
-                var error = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"❌ Telegram send failed: {response.StatusCode} - {error}");
+                Console.WriteLine($"❌ Exception while sending message to {chatId}: {ex.Message}");
             }
         }
     }

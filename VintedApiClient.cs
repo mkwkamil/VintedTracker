@@ -21,10 +21,12 @@ public class VintedApiClient(VintedClient vintedClient)
         client.DefaultRequestHeaders.Add("Accept-Language", "pl");
         
         var url = "https://www.vinted.pl/api/v2/catalog/items" +
-                  "?catalog_ids[]=79" +
-                  "&size_ids[]=209&size_ids[]=208&size_ids[]=210&size_ids[]=211" +
-                  "&price_to=100&currency=PLN" +
-                  "&order=newest_first&page=1";
+                  "?catalog_ids[]=260" +
+                  "&size_ids[]=1645&size_ids[]=1646&size_ids[]=1644&size_ids[]=209&size_ids[]=208&size_ids[]=1643" +
+                  "&price_to=80" +
+                  "&currency=PLN" +
+                  "&order=newest_first" +
+                  "&page=1";
         
         var response = await client.GetAsync(url);
         if (!response.IsSuccessStatusCode)

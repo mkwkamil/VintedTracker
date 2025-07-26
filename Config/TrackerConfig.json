@@ -1,0 +1,12 @@
+[
+  {
+    "Title": "Spodnie",
+    "Url": "https://www.vinted.pl/api/v2/catalog/items?catalog_ids[]=260&price_to=80&currency=PLN&size_ids[]=1645&size_ids[]=1646&size_ids[]=1644&size_ids[]=209&size_ids[]=208&size_ids[]=1643&order=newest_first&page=1",
+    "IntervalSeconds": 30
+  },
+  {
+    "Title": "Bluzy",
+    "Url": "https://www.vinted.pl/api/v2/catalog/items?catalog_ids[]=79&price_to=80&currency=PLN&size_ids[]=209&size_ids[]=208&order=newest_first&page=1&brand_ids[]=53&brand_ids[]=14&brand_ids[]=194976&brand_ids[]=5977&brand_ids[]=283953&brand_ids[]=441&brand_ids[]=1952232&brand_ids[]=15971&brand_ids[]=2703&brand_ids[]=6&brand_ids[]=65&brand_ids[]=362&brand_ids[]=872289&brand_ids[]=88&brand_ids[]=4273&brand_ids[]=430791&brand_ids[]=442625&brand_ids[]=6962946&brand_ids[]=4559748",
+    "IntervalSeconds": 30
+  }
+]

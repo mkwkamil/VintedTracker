@@ -1,0 +1,8 @@
+{
+  "_comment": "This is a sample configuration file for TelegramNotifier. Fill in your real bot token and chat IDs before running.",
+  "BotToken": "YOUR_BOT_TOKEN_HERE",
+  "ChatIds": [
+    "CHAT_ID_1",
+    "CHAT_ID_2"
+  ]
+}

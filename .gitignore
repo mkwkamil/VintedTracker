@@ -20,9 +20,6 @@ project.fragment.lock.json
 riderModule.iml
 _ReSharper.*
 
-# VS Code (jeśli kiedykolwiek otworzysz tam)
-.vscode/
-
 # Logs
 *.log
 

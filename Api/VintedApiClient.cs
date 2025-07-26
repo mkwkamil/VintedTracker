@@ -11,7 +11,7 @@ public class VintedApiClient(VintedClient vintedClient)
     public async Task<List<VintedItem>> GetParsedItemsAsync(string url)
     {
         var session = vintedClient.GetCurrentSession();
-        
+
         using var handler = new HttpClientHandler();
         handler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
@@ -23,19 +23,22 @@ public class VintedApiClient(VintedClient vintedClient)
 
         try
         {
+            // Send GET request to Vinted API
             var response = await client.GetAsync(url);
+
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine($"❌ Request failed ({(int)response.StatusCode}): {url}");
                 return [];
             }
-            
-            var content = await response.Content.ReadAsStringAsync();
-            using var doc = JsonDocument.Parse(content);
 
+            var content = await response.Content.ReadAsStringAsync();
+
+            using var doc = JsonDocument.Parse(content);
             if (!doc.RootElement.TryGetProperty("items", out var items))
                 return [];
-            
+
+            // Map each item from JSON into a VintedItem model
             return items.EnumerateArray().Select(item => new VintedItem
             {
                 Id = item.GetProperty("id").GetInt64(),
@@ -45,9 +48,13 @@ public class VintedApiClient(VintedClient vintedClient)
                 Price = item.GetProperty("price").GetProperty("amount").GetString() ?? "0",
                 TotalPrice = item.GetProperty("total_item_price").GetProperty("amount").GetString() ?? "",
                 Url = item.GetProperty("url").GetString() ?? "",
-                PhotoUrl = item.GetProperty("photo").GetProperty("thumbnails")
-                    .EnumerateArray().First(t => t.GetProperty("type").GetString() == "thumb310x430")
-                    .GetProperty("url").GetString() ?? ""
+                PhotoUrl = item
+                    .GetProperty("photo")
+                    .GetProperty("thumbnails")
+                    .EnumerateArray()
+                    .First(t => t.GetProperty("type").GetString() == "thumb310x430")
+                    .GetProperty("url")
+                    .GetString() ?? ""
             }).ToList();
         }
         catch (Exception ex)

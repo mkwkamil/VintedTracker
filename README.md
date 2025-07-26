@@ -103,4 +103,3 @@ LICENSE
 -------
 
 MIT © 2025 @mkwkamil
-Built with love for efficient Vinted sniping.

@@ -90,31 +90,6 @@ You will see output in the console such as:
 
 --------------------------------------------------------------------------------
 
-OUTPUT EXAMPLE (TELEGRAM)
--------------------------
-
-Title: *Nike Air Max*
-Brand: *Nike*
-Size: *42*
-Price: *150 PLN* (165 PLN)
-[Buy Now]
-
---------------------------------------------------------------------------------
-
-PROJECT STRUCTURE
------------------
-
-VintedTracker/
-├── Api/            // Vinted API integration
-├── Core/           // Tracker logic, session, memory
-├── Model/          // DTOs for config and items
-├── Services/       // Telegram bot sender
-├── Config/         // JSON config files
-├── Program.cs      // Entry point
-└── README.md       // This file
-
---------------------------------------------------------------------------------
-
 NOTES
 -----
 
@@ -127,5 +102,5 @@ NOTES
 LICENSE
 -------
 
-MIT © 2025 Your Name
+MIT © 2025 @mkwkamil
 Built with love for efficient Vinted sniping.

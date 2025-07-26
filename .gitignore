@@ -1,6 +1,37 @@
+# Build
 bin/
 obj/
+out/
+*.exe
+*.dll
+*.app
+*.pdb
+
+# NuGet
 /packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Rider
+.idea/
+*.sln.iml
+*.user
 riderModule.iml
-/_ReSharper.Caches/
-/Config/TelegramConfig.json
+_ReSharper.*
+
+# VS Code (jeśli kiedykolwiek otworzysz tam)
+.vscode/
+
+# Logs
+*.log
+
+# User secrets
+secrets.json
+
+# OS/macOS
+.DS_Store
+Thumbs.db
+
+# Config
+Config/TelegramConfig.json
